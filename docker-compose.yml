@@ -3,7 +3,18 @@ services:
   flask:
     build: .
     container_name: red    
+    entrypoint: python app.py
+    networks:
+      - flask-network
+    ports: 
+     - "5000:5000"
   nginx:
     image: nginx
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - flask-network
+    ports: 
+      - "80:80"
+networks:
+  flask-network:
