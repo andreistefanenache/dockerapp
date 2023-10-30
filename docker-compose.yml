@@ -16,5 +16,13 @@ services:
       - flask-network
     ports: 
       - "80:80"
+  flask:
+    build: .
+    container_name: blue
+    entrypoint: python app.py
+    networks:
+      - flask-network
+    ports:
+     - "5000:5000"
 networks:
   flask-network:
