@@ -8,7 +8,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 5000:5000 --name $BUILD_ID dockerapp'
+                sh 'docker run -d -p 5000:5000 --name $BUILD_URL 
+dockerapp'
             }
         }
     }
