@@ -1,21 +1,14 @@
 pipeline {
     agent any
     stages{
-        stage('Test') {
-            steps {
-                sh 'ls -a'
-                sh 'pwd'
-            }
-        }
         stage('Build') {
             steps {
-                sh 'touch example.txt'
+                sh 'docker build -t dockerapp .'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'echo hello >> example.txt'
-                sh 'cat example.txt'
+                sh 'docker run -d -p 5000:5000 --name $JOB_NAME dockerapp'
             }
         }
     }
