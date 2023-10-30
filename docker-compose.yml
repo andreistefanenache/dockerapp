@@ -23,6 +23,6 @@ services:
     networks:
       - flask-network
     ports:
-     - "5000:5001"
+     - "5001:5000"
 networks:
   flask-network:
