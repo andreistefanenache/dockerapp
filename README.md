@@ -1,2 +1,2 @@
 # dockerapp
-Push demo
+Push demo (including trailing slash)
