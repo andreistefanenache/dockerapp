@@ -7,8 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'docker build -t ${DOCKER_LOGIN_USR}/dockerapp .'
-                sh 'docker login -u ${DOCKER_LOGIN_USR} -p 
-${DOCKER_LOGIN_PSW}'
+                sh 'docker login -u ${DOCKER_LOGIN_USR} -p ${DOCKER_LOGIN_PSW}'
                 sh 'docker push ${DOCKER_LOGIN_USR}/dockerapp'
             }
         }
